@@ -13,23 +13,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, nom_article, id_categorie, quantite, prix_unitaire, date_fabrication, date_expiration, images FROM article";
+$sql = "SELECT id, libelle_categorie, images FROM categorie_article";
 $result = $conn->query($sql);
 
-$articles = array();
+$marques = array();
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         // Préfixer le chemin de l'image avec l'URL du serveur
         if ($row['images'] !== null) {
-            $row['images'] = "http://192.168.56.1/gstock-dclic/" . $row['images'];
+            $row['images'] = "http://192.168.56.1/gstock-dclic/" . $row['img'];
         }
-        $articles[] = $row;
+        $marques[] = $row;
     }
 }
 
 $conn->close();
 
 // Encodage et affichage du JSON
-echo json_encode($articles, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+echo json_encode($marques, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 ?>

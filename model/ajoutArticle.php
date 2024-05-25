@@ -8,13 +8,24 @@ if (
     && !empty($_POST['date_fabrication'])
     && !empty($_POST['date_expiration'])
     && !empty($_FILES['images'])
+    
+    && !empty($_POST['climatisation'])
+    && !empty($_POST['passager'])
+    && !empty($_POST['boite'])
+    && !empty($_POST['porte'])
+    && !empty($_POST['rapidite'])
+    && !empty($_POST['annee'])
 ) { 
 
-$sql = "INSERT INTO $nom_base_de_donne.article(nom_article, id_categorie, quantite, prix_unitaire, date_fabrication, date_expiration, images)
-        VALUES(?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO $nom_base_de_donne.article(
+                nom_article, id_categorie, quantite, prix_unitaire, date_fabrication, 
+                date_expiration, images, climatisation, passager, boite, porte, rapidite, annee
+            )
+            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
     $req = $connexion->prepare($sql);
     
-    $name = $_FILES['images']['name'];;
+    $name = $_FILES['images']['name'];
     $tmp_name = $_FILES['images']['tmp_name'];
     
     $folder = "../public/images/";
@@ -32,26 +43,30 @@ $sql = "INSERT INTO $nom_base_de_donne.article(nom_article, id_categorie, quanti
             $_POST['prix_unitaire'],
             $_POST['date_fabrication'],
             $_POST['date_expiration'],
-            $destination
+            $destination,
+            $_POST['climatisation'],
+            $_POST['passager'],
+            $_POST['boite'],
+            $_POST['porte'],
+            $_POST['rapidite'],
+            $_POST['annee'],
         ));
     
-        if ( $req->rowCount()!=0) {
-            $_SESSION['message']['text'] = "article ajouté avec succès";
+        if ($req->rowCount() != 0) {
+            $_SESSION['message']['text'] = "Article ajouté avec succès";
             $_SESSION['message']['type'] = "success";
-        }else {
+        } else {
             $_SESSION['message']['text'] = "Une erreur s'est produite lors de l'ajout de l'article";
             $_SESSION['message']['type'] = "danger";
         }
-    }else {
+    } else {
         $_SESSION['message']['text'] = "Une erreur s'est produite lors de l'importation de l'image de l'article";
         $_SESSION['message']['type'] = "danger";
     }
-    
-    
-
 } else {
-    $_SESSION['message']['text'] ="Une information obligatoire non rensignée";
+    $_SESSION['message']['text'] = "Une information obligatoire non renseignée";
     $_SESSION['message']['type'] = "danger";
 }
 
 header('Location: ../vue/article.php');
+?>

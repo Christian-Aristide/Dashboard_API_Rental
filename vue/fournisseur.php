@@ -10,23 +10,32 @@ if (!empty($_GET['id'])) {
     <div class="overview-boxes">
         <div class="box">
             <form action=" <?= !empty($_GET['id']) ?  "../model/modifFournisseur.php" : "../model/ajoutFournisseur.php" ?>" method="post">
-                <label for="nom">Nom</label>
-                <input value="<?= !empty($_GET['id']) ?  $fournisseur['nom'] : "" ?>" type="text" name="nom" id="nom" placeholder="Veuillez saisir le nom">
+                <label for="nom">Nom de l'entreprise</label>
+                <input value="<?= !empty($_GET['id']) ?  $fournisseur['nom'] : "" ?>" type="text" name="nom" id="nom" placeholder="saisir le nom">
                 <input value="<?= !empty($_GET['id']) ?  $fournisseur['id'] : "" ?>" type="hidden" name="id" id="id" >
                 
-                <label for="prenom">Prénom</label>
-                <input value="<?= !empty($_GET['id']) ?  $fournisseur['prenom'] : "" ?>" type="text" name="prenom" id="prenom" placeholder="Veuillez saisir le prénom">
+                <label for="prenom">Slogan</label>
+                <input value="<?= !empty($_GET['id']) ?  $fournisseur['prenom'] : "" ?>" type="text" name="prenom" id="prenom" placeholder="saisir le slogan">
+               
+                <label for="prenom">Type de véhicules</label>
+                <input value="<?= !empty($_GET['id']) ?  $fournisseur['prenom'] : "" ?>" type="text" name="prenom" id="prenom" placeholder="véhicules proposés">
                
                 <label for="email">Email</label>
-                <input value="<?= !empty($_GET['id']) ?  $fournisseur['email'] : "" ?>" type="text" name="email" id="email" placeholder="Veuillez saisir l'email">
+                <input value="<?= !empty($_GET['id']) ?  $fournisseur['email'] : "" ?>" type="text" name="email" id="email" placeholder="email de l'entreprise">
 
                 <label for="telephone">N° de téléphone</label>
                 <input value="<?= !empty($_GET['id']) ?  $fournisseur['telephone'] : "" ?>" type="text" name="telephone" id="telephone" placeholder="Veuillez saisir le N° de téléphone">
                 
-                <label for="adresse">Pays/Adresse</label>
-                <input value="<?= !empty($_GET['id']) ?  $fournisseur['adresse'] : "" ?>" type="text" name="adresse" id="adresse" placeholder="Veuillez saisir l'adresse">
+                <label for="adresse">Localisation</label>
+                <input value="<?= !empty($_GET['id']) ?  $fournisseur['adresse'] : "" ?>" type="text" name="adresse" id="adresse" placeholder="saisir l'adresse">
 
-                <button type="submit">Enregistrer</button>
+                <label for="adresse">Tarification journalier</label>
+                <input value="<?= !empty($_GET['id']) ?  $fournisseur['adresse'] : "" ?>" type="text" name="adresse" id="adresse" placeholder="exp: 50000-200000">
+
+                <label for="adresse">Conditions de location</label>
+                <input value="<?= !empty($_GET['id']) ?  $fournisseur['adresse'] : "" ?>" type="text" name="adresse" id="adresse" placeholder="condition">
+
+                <button type="submit">Configurer</button>
 
                 <?php
                 if (!empty($_SESSION['message']['text'])) {
@@ -43,11 +52,13 @@ if (!empty($_GET['id'])) {
         <div class="box">
             <table class="mtable">
                 <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
+                    <th>Nom de l'entreprise</th>
+                    <th>Slogan</th>
                     <th>Email</th>
                     <th>Téléphone</th>
-                    <th>Pays/Adresse</th>
+                    <th>Localisation</th>
+                    <th>Tarification</th>
+                    <th>Conditions de location</th>
                     <th>Action</th>
                 </tr>
                 <?php

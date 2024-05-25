@@ -10,7 +10,8 @@
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #0a2558;
+  /* background: #0a2558; */
+  background: #C67B17;
   transition: all 0.5s ease;
 }
 .sidebar.active {

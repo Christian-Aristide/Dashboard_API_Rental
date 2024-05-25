@@ -51,6 +51,20 @@ $offset = ($page - 1) * $limit;
 
                 <label for="images">Image</label>
                 <input value="<?= !empty($_GET['id']) ?  $article['images'] : "" ?>" type="file" name="images" id="images">
+<br> <br>
+<!-- Caractéristique  -->
+                <label for="nom_article" style="font-weight: bold;">Autres informations</label>
+                <input value="<?= !empty($_GET['id']) ?  $article['climatisation'] : "" ?>" type="text" name="climatisation" id="climatisation" placeholder="climatisation oui/non">
+
+                <input value="<?= !empty($_GET['id']) ?  $article['passager'] : "" ?>" type="number" name="passager" id="passager" placeholder="nombre de passager">
+
+                <input value="<?= !empty($_GET['id']) ?  $article['boite'] : "" ?>" type="text" name="boite" id="boite" placeholder="manuelle/auto">
+
+                <input value="<?= !empty($_GET['id']) ?  $article['porte'] : "" ?>" type="number" name="porte" id="porte" placeholder="nombre de porte">
+
+                <input value="<?= !empty($_GET['id']) ?  $article['rapidite'] : "" ?>" type="number" name="rapidite" id="rapidite" placeholder="rapidité">
+
+                <input value="<?= !empty($_GET['id']) ?  $article['annee'] : "" ?>" type="text" name="annee" id="annee" placeholder="année de sortie">
 
                 <button type="submit">Valider</button>
 

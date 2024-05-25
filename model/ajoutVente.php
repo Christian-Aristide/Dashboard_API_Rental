@@ -7,6 +7,7 @@ if (
     && !empty($_POST['id_client'])
     && !empty($_POST['quantite'])
     && !empty($_POST['prix'])
+    && !empty($_POST['date_fin_location'])
 ) {
 
 $article = getArticle($_POST['id_article']);
@@ -16,15 +17,16 @@ if (!empty($article) && is_array($article)) {
         $_SESSION['message']['text'] = "La quantité à vendre n'est pas disponible";
         $_SESSION['message']['type'] = "danger";
     }else {
-        $sql = "INSERT INTO vente(id_article, id_client, quantite, prix)
-            VALUES(?, ?, ?, ?)";
+        $sql = "INSERT INTO vente(id_article, id_client, quantite, prix, date_fin_location)
+            VALUES(?, ?, ?, ?, ?)";
         $req = $connexion->prepare($sql);
     
         $req->execute(array(
             $_POST['id_article'],  
             $_POST['id_client'],
             $_POST['quantite'],
-            $_POST['prix']
+            $_POST['prix'],
+            $_POST['date_fin_location']
         ));
     
         if ( $req->rowCount()!=0) {

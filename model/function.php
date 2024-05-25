@@ -115,7 +115,8 @@ function getClient($id = null)
 function getVente($id = null)
 {
     if (!empty($id)) {
-        $sql = "SELECT nom_article, nom, prenom, v.quantite, prix, date_vente, v.id, prix_unitaire, adresse, telephone
+        $sql = "SELECT nom_article, nom, prenom, v.quantite, prix,date_fin_location, date_vente, v.id, prix_unitaire, adresse, telephone, a.images, 
+        climatisation, passager, boite, porte, rapidite, annee
         FROM client AS c, vente AS v, article AS a WHERE v.id_article=a.id AND v.id_client=c.id AND v.id=? AND etat=?";
 
         $req = $GLOBALS['connexion']->prepare($sql);
@@ -124,7 +125,8 @@ function getVente($id = null)
 
         return $req->fetch();
     } else {
-        $sql = "SELECT nom_article, nom, prenom, v.quantite, prix, date_vente, v.id, a.id AS idArticle
+        $sql = "SELECT nom_article, nom, prenom, v.quantite, prix, date_fin_location, date_vente, v.id,
+         a.id AS idArticle
         FROM client AS c, vente AS v, article AS a WHERE v.id_article=a.id AND v.id_client=c.id AND etat=?";
 
         $req = $GLOBALS['connexion']->prepare($sql);

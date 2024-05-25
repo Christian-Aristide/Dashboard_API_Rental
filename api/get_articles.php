@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         // Préfixer le chemin de l'image avec l'URL correcte
         if ($row['images'] !== null) {
-            $row['images'] = "http://192.168.43.135/gstock-dclic/public/images/" . basename($row['images']);
+            $row['images'] = "http://192.168.56.1/gstock-dclic/public/images/" . basename($row['images']);
         }
         $articles[] = $row;
     }

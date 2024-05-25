@@ -42,7 +42,7 @@ if (!empty($_GET['id'])) {
                     }
 
                     ?>
-                </select>
+                </select> 
 
                 <label for="quantite">Quantité</label>
                 <input onkeyup="setPrix()" value="<?= !empty($_GET['id']) ?  $article['quantite'] : "" ?>" type="number" name="quantite" id="quantite" placeholder="Veuillez saisir la quantité">
@@ -50,8 +50,8 @@ if (!empty($_GET['id'])) {
                 <label for="prix">Prix</label>
                 <input value="<?= !empty($_GET['id']) ?  $article['prix'] : "" ?>" type="number" name="prix" id="prix" placeholder="Veuillez saisir le prix">
 
-                <label for="date_fabrication">Date de fin de location</label>
-                <input value="<?= !empty($_GET['id']) ?  $article['date_fabrication'] : "" ?>" type="datetime-local" name="date_fabrication" id="date_fabrication">
+                <label for="date_fin_location">Date de fin de location</label>
+                <input value="<?= !empty($_GET['id']) ?  $article['date_fin_location'] : "" ?>" type="datetime-local" name="date_fin_location" id="date_fabrication">
 
                 <button type="submit">Valider</button>
 

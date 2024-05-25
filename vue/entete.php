@@ -34,17 +34,17 @@ include_once '../model/function.php';
                 </a>
             </li>
             <li>
-                <a href="vente.php" class="<?php echo basename($_SERVER['PHP_SELF'])=="vente.php" ? "active" : "" ?> ">
-                    <!-- <i class='bx bx-shopping-bag'></i> -->
-                    <i class='bx bxs-select-multiple'></i>
-                    <span class="links_name">Locations</span>
-                </a>
-            </li>
-            <li>
                 <a href="client.php" class="<?php echo basename($_SERVER['PHP_SELF'])=="client.php" ? "active" : "" ?> ">
                     <!-- <i class="bx bx-user"></i> -->
                     <i class='bx bxs-user-circle'></i>
                     <span class="links_name">Clients</span>
+                </a>
+            </li>
+            <li>
+                <a href="categorie.php"  class="<?php echo basename($_SERVER['PHP_SELF'])=="categorie.php" ? "active" : "" ?> ">
+                    <!-- <i class="bx bx-list-ul"></i> -->
+                    <i class="bx bx-grid-alt"></i>
+                    <span class="links_name">Marques proposées</span>
                 </a>
             </li>
             <li>
@@ -55,26 +55,27 @@ include_once '../model/function.php';
                 </a>
             </li>
             <li>
+                <a href="vente.php" class="<?php echo basename($_SERVER['PHP_SELF'])=="vente.php" ? "active" : "" ?> ">
+                    <!-- <i class='bx bx-shopping-bag'></i> -->
+                    <i class='bx bxs-select-multiple'></i>
+                    <span class="links_name">Locations</span>
+                </a>
+            </li>
+            <li>
                 <a href="fournisseur.php"  class="<?php echo basename($_SERVER['PHP_SELF'])=="fournisseur.php" ? "active" : "" ?> ">
                     <!-- <i class="bx bx-user"></i> -->
-                    <i class='bx bxs-user-rectangle'></i>
-                    <span class="links_name">Fournisseurs</span>
+                    <!-- <i class='bx bxs-user-rectangle'></i> -->
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Configurations</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="commande.php"  class="<?php echo basename($_SERVER['PHP_SELF'])=="commande.php" ? "active" : "" ?> ">
                     <i class="bx bx-list-ul"></i>
-                    <!-- <i class="fa-solid fa-truck-moving"></i> -->
                     <span class="links_name">Commandes</span>
                 </a>
-            </li>
-            <li>
-                <a href="categorie.php"  class="<?php echo basename($_SERVER['PHP_SELF'])=="categorie.php" ? "active" : "" ?> ">
-                    <!-- <i class="bx bx-list-ul"></i> -->
-                    <i class="bx bx-grid-alt"></i>
-                    <span class="links_name">Marques</span>
-                </a>
-            </li>
+            </li> -->
+            
             <!-- <li>
                 <a href="#">
                     <i class="bx bx-pie-chart-alt-2"></i>
